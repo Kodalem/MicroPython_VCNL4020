@@ -8,11 +8,17 @@ This is a fork of `Jose D. Montoya's VCNL4010 implementation`_ ported over to VC
 Introduction
 ============
 
-MicroPython Driver for the Vishay VCNL4010 Proximity and Ambient Light Sensor
+MicroPython Driver for the Vishay VCNL4020 Proximity and Ambient Light Sensor
 
+
+THIS HAS NOT YET BEEN REWRITTEN
+===============================
 
 Installing with mip
 ====================
+
+
+
 To install using mpremote
 
 .. code-block:: shell
