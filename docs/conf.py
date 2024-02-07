@@ -21,9 +21,9 @@ try:
         sys.modules[module] = Mock()
         print("Mocked '{}' module".format(module))
 
-    import micropython_vcnl4010
+    import micropython_vcnl4020
 except ImportError:
-    raise SystemExit("micropython_vcnl4010 has to be importable")
+    raise SystemExit("micropython_vcnl4020 has to be importable")
 
 # -- General configuration ------------------------------------------------
 

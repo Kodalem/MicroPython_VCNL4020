@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 """
-`vcnl4010`
+`vcnl4020`
 ================================================================================
 
 9
@@ -15,11 +15,11 @@
 
 import time
 from micropython import const
-from micropython_vcnl4010.i2c_helpers import CBits, RegisterStruct
+from micropython_vcnl4020.i2c_helpers import CBits, RegisterStruct
 
 
 __version__ = "0.0.0+auto.0"
-__repo__ = "https://github.com/jposada202020/MicroPython_VCNL4010.git"
+__repo__ = "https://github.com/kodalem/MicroPython_VCNL4020.git"
 
 _REG_WHOAMI = const(0x81)
 _COMMAND_REGISTER = const(0x80)
@@ -87,30 +87,30 @@ ambient_light_average_values = (
 )
 
 
-class VCNL4010:
-    """Driver for the VCNL4010 Sensor connected over I2C.
+class VCNL4020:
+    """Driver for the VCNL4020 Sensor connected over I2C.
 
-    :param ~machine.I2C i2c: The I2C bus the VCNL4010 is connected to.
+    :param ~machine.I2C i2c: The I2C bus the VCNL4020 is connected to.
     :param int address: The I2C device address. Defaults to :const:`0x13`
 
     :raises RuntimeError: if the sensor is not found
 
     **Quickstart: Importing and using the device**
 
-    Here is an example of using the :class:`VCNL4010` class.
+    Here is an example of using the :class:`VCNL4020` class.
     First you will need to import the libraries to use the sensor
 
     .. code-block:: python
 
         from machine import Pin, I2C
-        from micropython_vcnl4010 import vcnl4010
+        from micropython_vcnl4020 import vcnl4020
 
     Once this is done you can define your `machine.I2C` object and define your sensor object
 
     .. code-block:: python
 
         i2c = I2C(1, sda=Pin(2), scl=Pin(3))
-        vcnl4010 = vcnl4010.VCNL4010(i2c)
+        vcnl4020 = vcnl4020.VCNL4020(i2c)
 
     Now you have access to the attributes
 
@@ -139,7 +139,7 @@ class VCNL4010:
         self._address = address
 
         if self._device_id != 0x21:
-            raise RuntimeError("Failed to find VCNL4010")
+            raise RuntimeError("Failed to find VCNL4020")
 
     @property
     def proximity_rate(self) -> str:
@@ -149,21 +149,21 @@ class VCNL4010:
         +-----------------------------------------+-------------------+
         | Mode                                    | Value             |
         +=========================================+===================+
-        | :py:const:`vcnl4010.SAMPLERATE_1_95`    | :py:const:`0b000` |
+        | :py:const:`vcnl4020.SAMPLERATE_1_95`    | :py:const:`0b000` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_3_90625` | :py:const:`0b001` |
+        | :py:const:`vcnl4020.SAMPLERATE_3_90625` | :py:const:`0b001` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_7_8125`  | :py:const:`0b010` |
+        | :py:const:`vcnl4020.SAMPLERATE_7_8125`  | :py:const:`0b010` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_16_625`  | :py:const:`0b011` |
+        | :py:const:`vcnl4020.SAMPLERATE_16_625`  | :py:const:`0b011` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_31_25`   | :py:const:`0b100` |
+        | :py:const:`vcnl4020.SAMPLERATE_31_25`   | :py:const:`0b100` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_62_5`    | :py:const:`0b101` |
+        | :py:const:`vcnl4020.SAMPLERATE_62_5`    | :py:const:`0b101` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_125`     | :py:const:`0b110` |
+        | :py:const:`vcnl4020.SAMPLERATE_125`     | :py:const:`0b110` |
         +-----------------------------------------+-------------------+
-        | :py:const:`vcnl4010.SAMPLERATE_250`     | :py:const:`0b111` |
+        | :py:const:`vcnl4020.SAMPLERATE_250`     | :py:const:`0b111` |
         +-----------------------------------------+-------------------+
         """
         values = (
@@ -208,21 +208,21 @@ class VCNL4010:
         +-------------------------------------------+-------------------+
         | Mode                                      | Value             |
         +===========================================+===================+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE1`  | :py:const:`0b000` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE1`  | :py:const:`0b000` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE2`  | :py:const:`0b001` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE2`  | :py:const:`0b001` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE3`  | :py:const:`0b010` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE3`  | :py:const:`0b010` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE4`  | :py:const:`0b011` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE4`  | :py:const:`0b011` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE5`  | :py:const:`0b100` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE5`  | :py:const:`0b100` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE6`  | :py:const:`0b101` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE6`  | :py:const:`0b101` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE8`  | :py:const:`0b110` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE8`  | :py:const:`0b110` |
         +-------------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AMBIENT_LIGHT_RATE10` | :py:const:`0b111` |
+        | :py:const:`vcnl4020.AMBIENT_LIGHT_RATE10` | :py:const:`0b111` |
         +-------------------------------------------+-------------------+
         """
         values = (
@@ -251,21 +251,21 @@ class VCNL4010:
         +------------------------------------+-------------------+
         | Mode                               | Value             |
         +====================================+===================+
-        | :py:const:`vcnl4010.AL_AVERAGE1`   | :py:const:`0b000` |
+        | :py:const:`vcnl4020.AL_AVERAGE1`   | :py:const:`0b000` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE2`   | :py:const:`0b001` |
+        | :py:const:`vcnl4020.AL_AVERAGE2`   | :py:const:`0b001` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE4`   | :py:const:`0b010` |
+        | :py:const:`vcnl4020.AL_AVERAGE4`   | :py:const:`0b010` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE8`   | :py:const:`0b011` |
+        | :py:const:`vcnl4020.AL_AVERAGE8`   | :py:const:`0b011` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE16`  | :py:const:`0b100` |
+        | :py:const:`vcnl4020.AL_AVERAGE16`  | :py:const:`0b100` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE32`  | :py:const:`0b101` |
+        | :py:const:`vcnl4020.AL_AVERAGE32`  | :py:const:`0b101` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE64`  | :py:const:`0b110` |
+        | :py:const:`vcnl4020.AL_AVERAGE64`  | :py:const:`0b110` |
         +------------------------------------+-------------------+
-        | :py:const:`vcnl4010.AL_AVERAGE128` | :py:const:`0b111` |
+        | :py:const:`vcnl4020.AL_AVERAGE128` | :py:const:`0b111` |
         +------------------------------------+-------------------+
         """
         values = (

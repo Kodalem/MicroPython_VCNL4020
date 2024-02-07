@@ -4,20 +4,19 @@
 
 import time
 from machine import Pin, I2C
-from micropython_vcnl4010 import vcnl4010
+from micropython_vcnl4020 import vcnl4020
 
 i2c = I2C(1, sda=Pin(2), scl=Pin(3))  # Correct I2C pins for RP2040
-vcn = vcnl4010.VCNL4010(i2c)
+vcn = vcnl4020.VCNL4020(i2c)
 
-vcn.ambient_light_rate = vcnl4010.AMBIENT_LIGHT_RATE2
+vcn.proximity_rate = vcnl4020.SAMPLERATE_31_25
 
 while True:
-    for ambient_light_rate in vcnl4010.ambient_light_rate_values:
-        print("Current Ambient light rate setting: ", vcn.ambient_light_rate)
+    for proximity_rate in vcnl4020.proximity_rate_values:
+        print("Current Proximity rate setting: ", vcn.proximity_rate)
         for _ in range(10):
-            light = vcn.light
             print(f"Proximity: {vcn.proximity}")
             print(f"Ambient light: {vcn.ambient} lux")
             print()
             time.sleep(0.5)
-        vcn.ambient_light_rate = ambient_light_rate
+        vcn.proximity_rate = proximity_rate

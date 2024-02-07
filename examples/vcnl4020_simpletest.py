@@ -4,10 +4,10 @@
 
 import time
 from machine import Pin, I2C
-from micropython_vcnl4010 import vcnl4010
+from micropython_vcnl4020 import vcnl4020
 
 i2c = I2C(1, sda=Pin(2), scl=Pin(3))  # Correct I2C pins for RP2040
-vcn = vcnl4010.VCNL4010(i2c)
+vcn = vcnl4020.VCNL4020(i2c)
 
 while True:
     print(f"Proximity: {vcn.proximity}")
