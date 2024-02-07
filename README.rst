@@ -8,28 +8,6 @@ This is a fork of `Jose D. Montoya's VCNL4010 implementation`_ ported over to VC
 Introduction
 ============
 
-
-.. image:: https://readthedocs.org/projects/micropython-vcnl4010/badge/?version=latest
-    :target: https://micropython-vcnl4010.readthedocs.io/en/latest/
-    :alt: Documentation Status
-
-
-.. image:: https://img.shields.io/badge/micropython-Ok-purple.svg
-    :target: https://micropython.org
-    :alt: micropython
-
-.. image:: https://img.shields.io/pypi/v/micropython-vcnl4010.svg
-    :alt: latest version on PyPI
-    :target: https://pypi.python.org/pypi/micropython-vcnl4010
-
-.. image:: https://static.pepy.tech/personalized-badge/micropython-vcnl4010?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Pypi%20Downloads
-    :alt: Total PyPI downloads
-    :target: https://pepy.tech/project/micropython-vcnl4010
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: Code Style: Black
-
 MicroPython Driver for the Vishay VCNL4010 Proximity and Ambient Light Sensor
 
 
