@@ -1,6 +1,9 @@
 Preamble
 ========
-This is a fork of [Jose D. Montoya's VCNL4010 implementation](https://github.com/jposada202020/MicroPython_VCNL4010) ported over to VCNL4020, which is Vishay's next iteration of the same proximity sensor as VCNL4010 has reached end of life and production. This code migration was very little work - so most, if not even all, credit goes to them.
+This is a fork of `Jose D. Montoya's VCNL4010 implementation`_ ported over to VCNL4020, which is Vishay's next iteration of the same proximity sensor as VCNL4010 has reached end of life and production. This code migration was very little work - so most, if not even all, credit goes to them.
+
+
+.. _Jose D. Montoya's VCNL4010 implementation: https://github.com/jposada202020/MicroPython_VCNL4010
 
 Introduction
 ============
